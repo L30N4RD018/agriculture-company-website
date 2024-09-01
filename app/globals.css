@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 155, 214, 144;
+  --background-end-rgb: 95, 235, 110;
+}
+
+@font-face{
+  font-family: 'Montserrat';
+  src: url('../public/fonts/Montserrat-Regular.ttf') format('truetype'),
+       url('../public/fonts/Montserrat-Bold.ttf') format('truetype');
+
+}
+
+body{
+  font-family: 'Montserrat';
+}
+
+.bg-gradient-main{
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.bg-gradient-blue{
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(18, 141, 255)
+    )
+    rgb(95,160,190);  
+}
+.bg-gradient-main-dark{
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(95, 175, 110);  
+}
+.form-container{
+  position: fixed;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.close-button{
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  outline: none;  
+}
