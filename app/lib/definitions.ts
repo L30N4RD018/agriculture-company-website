@@ -34,6 +34,7 @@ export interface InputData {
 }
 
 export type monthlyCrops = {
-    month: string,
-    crops: number
+    month: string,    
+    sown: number,
+    harvested: number
 }

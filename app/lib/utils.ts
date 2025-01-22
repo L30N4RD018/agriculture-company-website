@@ -12,7 +12,7 @@ export function translateDate(date: string): string {
 export const generateYAxis = (data: monthlyCrops[]) => {
     const yAxisLabels = []
     const highestRecord = Math.max(...data.map((record) => record.crops))
-    const topLabel = Math.ceil(highestRecord / 10) * 10
+    const topLabel = highestRecord > 10 ? Math.ceil(highestRecord / 10) * 10 : 10
     for (let i = topLabel; i >= 0; i -= topLabel / 5) {
         yAxisLabels.push(i)
     }

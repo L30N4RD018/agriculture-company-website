@@ -9,19 +9,21 @@ const handler = NextAuth({
           credentials: {
             email: { label: "Username", type: "text", placeholder: "jsmith"},
             password: { label: "Password", type: "password" }
-          },
-          async authorize(credentials, req) {            
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login?username=${credentials?.email}&password=${credentials?.password}`,
-                {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },                    
-                }
-            )
-            const user = await res.json()
-            if (user.status_code === 400) throw user;
-            return user;
+          },          
+          async authorize(credentials, req) {
+            const res = await fetch(`${process.env.PUBLIC_API_URL}/users/login?username=${credentials?.email}&password=${credentials?.password}`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+              }
+            });
+
+            if (!res.ok) {
+              const user = await res.json();
+              throw new Error(user.detail.error || 'Error al iniciar sesión');
+            }
+
+            return await res.json();;
           }
         })
       ],

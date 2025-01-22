@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 155, 214, 144;
   --background-end-rgb: 95, 235, 110;
+  --main-green: #22c55e;
 }
 
 @font-face{
@@ -57,4 +58,31 @@ body{
   padding: 0.5rem;
   cursor: pointer;
   outline: none;  
+}
+
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid gray; 
+  border-radius: 4px; 
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--main-green); 
+  border-color: var(--main-green); 
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔"; 
+  position: absolute;
+  top: 0;
+  left: 2px;
+  font-size: 16px;
+  color: white;
 }

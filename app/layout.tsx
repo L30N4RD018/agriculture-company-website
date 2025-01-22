@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Session from "@/context/sessionProvider"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+
 
 export const metadata: Metadata = {
 	title: "Agriculture Company",
@@ -15,7 +18,8 @@ export default function RootLayout({
 	return (
 		<html lang="es">
 			<body className={'bg-white'}>
-				<Session>
+				<ToastContainer />
+				<Session>					
 					{children}
 				</Session>
 			</body>

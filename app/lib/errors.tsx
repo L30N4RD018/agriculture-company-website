@@ -1,9 +1,22 @@
-
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function errorToast(message: string) {
-    return (
-        <div className="bg-red-500 text-white p-2 rounded-md z-50">
-            {message}
-        </div>
-    )
+    return toast.error(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+    });
+}
+export function successToast(message: string) {
+    return toast.success(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+    });
 }
